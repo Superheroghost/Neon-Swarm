@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+:root {
+  --c-bg: #04050c;
+  --c-cyan: #22d3ee;
+  --c-pink: #ff2d95;
+  --c-green: #3dffa0;
+  --c-amber: #ffb020;
+  --c-blue: #5f8cff;
+  --c-purple: #a78bff;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--c-bg);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: "Rajdhani", "Segoe UI", system-ui, sans-serif;
+  color: #e8f4ff;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+  outline: none;
+}
+
+.font-display {
+  font-family: "Orbitron", "Rajdhani", system-ui, sans-serif;
+}
+
+.font-tech {
+  font-family: "Rajdhani", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- neon title ---------- */
+.title-neon {
+  color: #eafcff;
+  text-shadow:
+    0 0 6px rgba(34, 211, 238, 0.9),
+    0 0 22px rgba(34, 211, 238, 0.55),
+    0 0 68px rgba(34, 211, 238, 0.4),
+    2px 0 0 rgba(255, 45, 149, 0.55),
+    -2px 0 0 rgba(34, 211, 238, 0.55);
+  animation: neon-flicker 4.5s infinite;
+}
+
+.title-neon-pink {
+  color: #fff0f8;
+  text-shadow:
+    0 0 6px rgba(255, 45, 149, 0.9),
+    0 0 22px rgba(255, 45, 149, 0.55),
+    0 0 68px rgba(255, 45, 149, 0.4),
+    2px 0 0 rgba(34, 211, 238, 0.55),
+    -2px 0 0 rgba(255, 45, 149, 0.55);
+  animation: neon-flicker 5.2s infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  92.5% { opacity: 0.72; }
+  93% { opacity: 1; }
+  95.5% { opacity: 0.85; }
+  96% { opacity: 1; }
+}
+
+/* ---------- panels & buttons ---------- */
+.panel {
+  background: linear-gradient(160deg, rgba(13, 19, 40, 0.72), rgba(7, 10, 22, 0.82));
+  border: 1px solid rgba(148, 197, 255, 0.16);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 18px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 14px;
+}
+
+.btn-neon {
+  position: relative;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid rgba(34, 211, 238, 0.65);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.16), rgba(34, 211, 238, 0.05));
+  color: #d9fbff;
+  box-shadow:
+    0 0 18px rgba(34, 211, 238, 0.28),
+    inset 0 0 14px rgba(34, 211, 238, 0.12);
+  transition: transform 0.12s ease, box-shadow 0.18s ease, background 0.18s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-neon:hover {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.3), rgba(34, 211, 238, 0.1));
+  box-shadow:
+    0 0 30px rgba(34, 211, 238, 0.5),
+    inset 0 0 20px rgba(34, 211, 238, 0.2);
+}
+
+.btn-neon:active {
+  transform: scale(0.96);
+}
+
+.btn-neon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-20deg);
+  animation: sheen 3.2s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0%, 60% { left: -70%; }
+  90%, 100% { left: 130%; }
+}
+
+.btn-ghost {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(148, 197, 255, 0.25);
+  color: #b9d6f5;
+  background: rgba(148, 197, 255, 0.05);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(148, 197, 255, 0.55);
+  color: #eaf4ff;
+  background: rgba(148, 197, 255, 0.12);
+  box-shadow: 0 0 16px rgba(148, 197, 255, 0.18);
+}
+
+.btn-ghost:active {
+  transform: scale(0.96);
+}
+
+kbd.key {
+  display: inline-block;
+  min-width: 1.35rem;
+  padding: 0.08rem 0.34rem;
+  border: 1px solid rgba(148, 197, 255, 0.3);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: rgba(148, 197, 255, 0.08);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.6rem;
+  text-align: center;
+  color: #cfe7ff;
+}
+
+/* ---------- overlays ---------- */
+.crt-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.022) 0px,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  mix-blend-mode: overlay;
+}
+
+.vignette-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 29;
+  background: radial-gradient(ellipse at center, transparent 52%, rgba(2, 3, 8, 0.55) 100%);
+}
+
+.screen-dim {
+  background: radial-gradient(ellipse at center, rgba(4, 5, 12, 0.42) 0%, rgba(4, 5, 12, 0.9) 100%);
+}
+
+/* ---------- animations ---------- */
+@keyframes fade-slide-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.anim-in {
+  animation: fade-slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-in-slow {
+  animation: fade-slide-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes mult-pop {
+  0% { transform: scale(2.1); filter: brightness(3); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+.mult-pop {
+  animation: mult-pop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: left center;
+}
+
+@keyframes blink-caret {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+
+.blink {
+  animation: blink-caret 0.9s step-end infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+.float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-neon, .title-neon-pink, .btn-neon::after, .float-y {
+    animation: none;
+  }
+}
