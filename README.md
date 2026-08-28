@@ -50,6 +50,12 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages Deployment
+
+This repository includes a workflow at `/home/runner/work/Neon-Swarm/Neon-Swarm/.github/workflows/deploy-pages.yml` that builds the app and deploys `dist` to GitHub Pages.
+
+In your repository settings, set **Pages** source to **GitHub Actions** (not branch root) so the built output is deployed.
+
 ## Controls
 
 ### Desktop
