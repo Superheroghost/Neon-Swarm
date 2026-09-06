@@ -23,8 +23,19 @@
     />
     <title>NEON SWARM — Twin-Stick Arcade</title>
   </head>
-  <body style="background: #04050c">
+  <body style="background: #04050c; margin: 0; padding: 0;">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      import { StrictMode } from 'https://esm.sh/react@19.2.6';
+      import { createRoot } from 'https://esm.sh/react-dom@19.2.6/client';
+      import App from './src/App.tsx';
+      
+      const root = document.getElementById('root');
+      if (root) {
+        createRoot(root).render(
+          StrictMode ? StrictMode({ children: App() }) : App()
+        );
+      }
+    </script>
   </body>
 </html>
