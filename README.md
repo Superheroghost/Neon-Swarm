@@ -50,11 +50,11 @@ npm run build
 npm run preview
 ```
 
-## GitHub Pages Deployment
+## Deployment (GitLab Pages)
 
-This repository includes a workflow at `/home/runner/work/Neon-Swarm/Neon-Swarm/.github/workflows/deploy-pages.yml` that builds the app and deploys `dist` to GitHub Pages.
+The pipeline in `.gitlab-ci.yml` builds the app with Vite and publishes `dist/` to GitLab Pages on every push to the default branch.
 
-In your repository settings, set **Pages** source to **GitHub Actions** (not branch root) so the built output is deployed.
+The site will be available at `https://<namespace>.gitlab.io/<project>/`. No extra settings are required — Vite is configured with `base: "./"` and `vite-plugin-singlefile`, so all JS/CSS is inlined into a single `index.html` that works at any subpath (and even from `file://`).
 
 ## Controls
 

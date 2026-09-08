@@ -1,14 +1,23 @@
+# Publishes the built app to GitLab Pages.
+# Vite outputs to dist/ (base "./" + vite-plugin-singlefile), so the site works
+# at the project subpath (https://<user>.gitlab.io/<repo>/) with no extra config.
+
 pages:
   stage: deploy
-  image: alpine:latest
-  before_script:
-    - apk add --no-cache rsync
+  image: node:22-alpine
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm
   script:
-    - mkdir -p public
-    - rsync -av --exclude=public ./ public/
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+    - rm -rf public
+    - cp -r dist public
   artifacts:
     paths:
       - public
-  only:
-    - main
-
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

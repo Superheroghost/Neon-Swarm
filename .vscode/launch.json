@@ -1,0 +1,26 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Recommended: starts the Vite dev server automatically, then opens Edge.
+      "type": "msedge",
+      "request": "launch",
+      "name": "Play NEON SWARM (dev server)",
+      "url": "http://localhost:5173/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Vite Dev Server"
+    },
+    {
+      // Standalone fallback: opens the self-contained production build
+      // (dist/index.html inlines all JS/CSS, so it works from file://).
+      "type": "msedge",
+      "request": "launch",
+      "name": "Play NEON SWARM (built dist/index.html)",
+      "url": "file:///e:/Neon-Swarm/dist/index.html",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
